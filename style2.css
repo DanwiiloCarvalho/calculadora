@@ -123,3 +123,30 @@ span.expression {
         padding-right: 10px;
     }
 }
+
+/*Telas de celular*/
+@media screen and (max-width: 767px) {
+    
+    html {
+        height: 100vh;
+    }
+    body {
+        background: none;
+        height: 100%;
+    }
+    div.container {
+        width: 100vw;
+        height: 100%;
+    }
+    div.screen {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    div.keyboard button:nth-child(14) {
+        border-bottom-left-radius: 0;
+    }
+    
+    div.keyboard button:nth-child(17) {
+        border-bottom-right-radius: 0;
+    }
+}
