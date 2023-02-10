@@ -3,6 +3,7 @@ const screen = document.querySelector('.screen span.display');
 const clear = document.querySelector(".clear");
 const allButton = document.querySelectorAll("button");
 
+
 let expression = []; //Array que guarda a expressão matemática
 let posEqual = false; //Flag que indica se a tecla = foi pressionada
 
