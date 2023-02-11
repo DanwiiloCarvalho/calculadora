@@ -1,5 +1,6 @@
 //Captura dos elementos da calculadora
-const screen = document.querySelector('.screen span.display');
+/* const screen = document.querySelector('.screen span.display'); */
+const screen = document.querySelector('.screen div.display');
 const clear = document.querySelector(".clear");
 const allButton = document.querySelectorAll("button");
 
@@ -10,7 +11,7 @@ let posEqual = false; //Flag que indica se a tecla = foi pressionada
 //Função que limpa o display(colocando o dígito zero) e a expressão matemática
 function clearExpression() {
     screen.innerText = "0";
-    screen.previousElementSibling.innerText = "0";
+    screen.nextElementSibling.innerText = "0";
     expression = [];
 }
 
@@ -53,23 +54,29 @@ allButton.forEach((element) => {
             expression.push(operand);
             expression.push(element.innerText.replace("x", "*").replace("÷", "/"));
             screen.innerText = "0";
-            console.log(expression);
-            screen.previousElementSibling.innerText = expression.join(" ");
+            /* console.log(expression); */
+            screen.nextElementSibling.innerText = expression.join(" ");
         }
         if (element.classList.contains('number')) {
-            if (screen.innerText === '0') {
-                screen.innerText = "";
+            if (screen.innerText.length < 9) {
+                if (screen.innerText === '0') {
+                    screen.innerText = "";
+                }
+                screen.innerText += element.innerText;
             }
-            screen.innerText += element.innerText;
+            
         }
         if (element.classList.contains('equal')) {
             let operand = Number(screen.innerText);
             expression.push(operand);
             /* console.log(expression); */
-            screen.previousElementSibling.innerText = expression.join(" ");
-            let result = eval(screen.previousElementSibling.innerText);
+            screen.nextElementSibling.innerText = expression.join(" ");
+            let result = eval(screen.nextElementSibling.innerText);
+            if (result.toString().length > 13) {
+                result = result.toExponential(3);
+            }
             screen.innerText = result;
-            screen.previousElementSibling.innerText += " " + element.innerText + " " + result;
+            screen.nextElementSibling.innerText += " " + element.innerText + " " + result;
             posEqual = true;
         }
     });
