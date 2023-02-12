@@ -72,8 +72,11 @@ allButton.forEach((element) => {
             /* console.log(expression); */
             screen.nextElementSibling.innerText = expression.join(" ");
             let result = eval(screen.nextElementSibling.innerText);
-            if (result.toString().length > 13) {
-                result = result.toExponential(3);
+            /* if (!Number.isInteger(result)) {
+                result = result.toFixed(2);
+            } */
+            if ((result.toString().length > 10)) {
+                result = Number(result).toExponential(6);
             }
             screen.innerText = result;
             screen.nextElementSibling.innerText += " " + element.innerText + " " + result;
