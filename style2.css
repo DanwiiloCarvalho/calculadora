@@ -42,20 +42,17 @@ div.screen {
     border-top-right-radius: 20px;
     flex: 1;
     color: #ffffff;
-    /* font-size: 4rem; */
-    
 }
 
 div.expression {
     font-size: 1rem;
-    /* align-self: flex-end; */
     padding-left: 2px;
 }
 
 div.display {
     align-self: flex-end;
     padding-right: 2px;
-    font-size: 2.3rem;
+    font-size: 2.8rem;
 }
 
 div.keyboard {
@@ -142,9 +139,6 @@ button {
     }
     span.expression {
         font-size: 1rem;
-    }
-    div.screen {
-        /* padding-right: 10px; */
     }
 }
 
